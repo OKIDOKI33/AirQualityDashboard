@@ -1,0 +1,147 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    display: flex; /* Set a flex container for sidebar and main content */
+}
+
+#sidebar {
+    background-color: grey;
+    color: white;
+    width: 250px;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+header {
+    margin-bottom: 2rem; /* Add spacing between header and nav */
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 1rem 0;
+    font-size: 1.2rem; /* Adjust size if needed */
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+}
+
+nav a:hover i {
+    color: grey; /* Highlight the icon on hover */
+}
+
+nav a:hover {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+main {
+    flex: 1; /* Main content takes the rest of the screen width */
+    padding: 2rem;
+    background-color: #f4f4f4;
+    min-height: 100vh; /* Ensure full height */
+}
+
+/* Data Display Section */
+#data-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background-color: white;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.card p {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Charts Section */
+#charts {
+    display: flex; /* Use flexbox for better control over layout */
+    flex-wrap: wrap; /* Wrap charts to the next row if space runs out */
+    justify-content: space-around; /* Evenly distribute charts */
+    gap: 20px; /* Space between charts */
+    margin-top: 20px;
+}
+
+canvas {
+    flex: 1 1 300px;
+    max-width: 500px;
+    height: 400px;
+    width: 100%;
+    border: 1px solid #ddd; /* Optional for debugging */
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    width: calc(100% - 250px); /* Adjust for the sidebar width */
+    position: fixed; /* Stick to the bottom */
+    bottom: 0;
+    left: 250px; /* Align with the sidebar */
+    box-sizing: border-box;
+}
+
+footer a {
+    color: grey;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Section Visibility */
+#home, #dashboard {
+    opacity: 0;
+    visibility: hidden; /* Use visibility instead of display for smoother transitions */
+    position: absolute; /* Keep sections out of the layout flow when hidden */
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+#home.active, #dashboard.active {
+    opacity: 1;
+    visibility: visible; /* Make sections visible */
+    position: static; /* Restore layout flow when active */
+}

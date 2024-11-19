@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Monitoring Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="sidebar">
+        <header>
+            <h1>Air Quality Dashboard</h1>
+            <p>Track real-time air quality data.</p>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#home" id="homeButton"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#dashboard" id="dataButton"><i class="fas fa-database"></i> Dashboard</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </nav>
+    </div>
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="active">
+            <h2>Welcome to the Air Quality Dashboard</h2>
+            <p>Stay informed about air quality and weather conditions in real-time. Explore the following features:</p>
+            <ul>
+                <li>Track real-time air quality indicators such as PM2.5, PM10, and NOx levels.</li>
+                <li>View historical trends in temperature and humidity.</li>
+                <li>Analyze pollutant distribution with intuitive charts.</li>
+            </ul>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard">
+            <h2>Main Dashboard</h2>
+            <div id="data-display">
+                <div id="charts">
+                    <canvas id="lineChart"></canvas>
+                    <canvas id="barChart"></canvas>
+                    <canvas id="doughnutChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About This Project</h2>
+            <p>This dashboard allows users to monitor air quality and weather data in real-time.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Air Quality Dashboard | <a href="#resources">Resources</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
