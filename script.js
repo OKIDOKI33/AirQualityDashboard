@@ -1,8 +1,34 @@
 const WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather";
 const AIR_POLLUTION_URL = "https://api.openweathermap.org/data/2.5/air_pollution";
 const API_KEY = "36e882481ab8fff30a504fba20e5e414"; // Replace with your actual API key
-const LAT = 35.1796; // Latitude for Busan
-const LON = 129.0756; // Longitude for Busan
+let LAT = 35.1796; // Default latitude
+let LON = 129.0756; // Default longitude
+
+// Handle city search functionality
+document.getElementById("city-search-button").addEventListener("click", async () => {
+    const cityName = document.getElementById("city-search").value.trim();
+    if (!cityName) {
+        alert("Please enter a city name.");
+        return;
+    }
+
+    try {
+        const geocodeResponse = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_KEY}`);
+        if (!geocodeResponse.ok) throw new Error("Failed to fetch city coordinates.");
+        const geocodeData = await geocodeResponse.json();
+        if (!geocodeData.length) {
+            alert("City not found. Please try again.");
+            return;
+        }
+
+        LAT = geocodeData[0].lat;
+        LON = geocodeData[0].lon;
+        updateDashboard(); // Refresh data for the searched city
+    } catch (error) {
+        console.error("Error fetching city coordinates:", error.message);
+        alert("An error occurred while searching for the city. Please try again.");
+    }
+});
 
 // Historical Data Arrays
 let temperatureHistory = [];

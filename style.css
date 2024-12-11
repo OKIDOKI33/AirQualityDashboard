@@ -128,7 +128,18 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
-
+#home {
+    background-image: url('https://snowdonia.gov.wales/wp-content/uploads/2022/03/venus-trawsfynydd.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100vh;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: white; 
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); 
+}
 /* Section Visibility */
 #home, #dashboard {
     opacity: 0;
@@ -144,4 +155,29 @@ footer a:hover {
     opacity: 1;
     visibility: visible; /* Make sections visible */
     position: static; /* Restore layout flow when active */
+}
+
+/* Style for the search bar */
+#city-search {
+    width: 70%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+}
+
+#city-search-button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#city-search-button:hover {
+    background-color: #0056b3;
 }
